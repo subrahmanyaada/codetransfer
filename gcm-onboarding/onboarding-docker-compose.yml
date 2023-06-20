@@ -1,0 +1,20 @@
+version: '3.4'
+services:
+
+  onboarding:
+    image: dockerhubmg2023/onboarding:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: onboarding
+    restart: unless-stopped
+    ports:
+      - "3008:3008"
+    networks:
+        - gcm_subnet
+
+networks:
+  gcm_subnet:
+    driver: bridge
+    name: gcm
+    external: true
