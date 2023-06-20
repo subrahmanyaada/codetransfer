@@ -23,7 +23,7 @@ const getTransformedPayloadForFreeFormMessage = {
                 from: payload.wabaNumber,
                 to: payload.to,
                 type: payload.type,
-                text: payload.text.body
+                text: payload.text?.body
             },
             url: bmpFreeformTextUrl, // config.bmp.freeFormText
            

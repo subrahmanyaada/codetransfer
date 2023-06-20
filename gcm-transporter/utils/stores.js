@@ -6,7 +6,7 @@ const client = redis.createClient(redisConfig);
 
 //Function to store the data in redis
 async function storeToRedis(key, value) {
-  consoleLog("storeToRedis ==> key=" + key + " value=" + value);
+  // consoleLog("storeToRedis ==> key=" + key + " value=" + value);
   client.set(key, value, (err, reply) => {
     if (err) {
       throw new Error("storeToRedis error = " + err);
@@ -35,9 +35,9 @@ async function getDataFromRedis(key) {
 
 async function getConfig(serviceId, partnerId) {
   const configKey = await getPartnerConfigKey(serviceId, partnerId);
-  consoleLog(configKey);
+  // consoleLog(configKey);
   const configData = await getDataFromRedis(configKey);
-  consoleLog("value from store = "+configData);
+  consoleLog("\n\nvalue from store = \n\n"+configData);
   if(!configData) {
     throw new Error(
       "Info not present in redis for key=" +
@@ -54,7 +54,7 @@ async function getPartnerConfigKey(serviceId, partnerId) {
 //Function to store the transformed message into redis
 async function storeTransformedMessage(partnerId, transformedMessage) {
   const msgId = "t-" + partnerId + "-" + transformedMessage["msgId"];
-  consoleLog(`Transformed key ${msgId}`);
+  // consoleLog(`Transformed key ${msgId}`);
   const payloadString = JSON.stringify(transformedMessage.Configuration.data);
   storeToRedis(msgId, payloadString);
 }

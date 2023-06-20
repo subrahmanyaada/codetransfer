@@ -6,9 +6,9 @@ const {
 } = require("../../utils/tools");
 
 function validatePartnerConfigForCtap(config) {
-  consoleLog(
-    "\n\nvalidatePartnerConfigForCtap -> config = \n\n" + stringifyObject(config)
-  );
+  // consoleLog(
+  //   "\n\nvalidatePartnerConfigForCtap -> config = \n\n" + stringifyObject(config)
+  // );
 
   const serviceId = config.serviceId;
   const partnerId = config.config.partnerId;

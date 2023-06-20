@@ -55,7 +55,8 @@ const getTransformedPayloadForTemplateMessage = {
 function ctapTransformTemplateMessagePayload(payload, config) {
     //Transforming the data using payload directly without using mapping model because of the array type data
     let transformedData = {}
-    if (payload.components.length == 1) {
+    console.log("Payload", payload)
+    if (payload.components?.length == 1) {
         transformedData = getTransformedPayloadForTemplateMessage.templateText(payload)
     } else {
         const hasHeader = payload.components.find(

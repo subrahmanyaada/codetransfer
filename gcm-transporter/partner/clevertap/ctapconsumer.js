@@ -42,8 +42,7 @@ async function consumeMessages(channel, serviceId, partnerId, configPayload, dis
 
 async function onTimeOut(partnerDetails, channel, msg, config, dispatch) {
   const payload = partnerDetails.partnerPayload;
-  const isValidate = validateCleverTapPayload(payload);
-  if (isValidate) {
+  // if (isValidate) {
     // transform
     const result = transform(payload, config);
     consoleLog("transformed message = "+stringifyObject(result))
@@ -59,10 +58,10 @@ async function onTimeOut(partnerDetails, channel, msg, config, dispatch) {
     );
     await dispatch.publishMessage(channel, config, result);
     channel.ack(msg);
-  } else {
-    consoleLog("Required fields are not there");
-    channel.ack(msg); // Acknowledge the message to remove it from the queue
-  }
+  // } else {
+  //   consoleLog("Required fields are not there");
+  //   channel.ack(msg); // Acknowledge the message to remove it from the queue
+  // }
 }
 
 module.exports = { consumeMessages, getConfigForCtap };
