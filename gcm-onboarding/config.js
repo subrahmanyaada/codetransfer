@@ -1,6 +1,7 @@
+const redisServer = {
+  host: '127.0.0.1',
+  // host: "redis",
+  port: 6379,
+};
 
-
-
-  const redisServer= {"host":"127.0.0.1","port":6379}
-
-  module.exports={redisServer};
+module.exports = { redisServer };
